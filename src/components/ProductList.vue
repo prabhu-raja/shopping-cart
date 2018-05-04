@@ -25,6 +25,7 @@ export default {
   computed: {
     products () {
       // return store.state.products
+      // test
       return store.getters.availableProducts
     }
   },
