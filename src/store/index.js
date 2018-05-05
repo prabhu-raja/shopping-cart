@@ -1,7 +1,6 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
 import shop from '@/api/shop'
-import { resolve } from 'upath';
 
 Vue.use(Vuex)
 
