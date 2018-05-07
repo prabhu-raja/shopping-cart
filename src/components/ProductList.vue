@@ -6,7 +6,10 @@
       v-if="loading">
     <ul v-else>
       <li v-for="(product, pIndx) in products" :key="pIndx">
-        {{product.title}} - {{product.price}}
+        {{product.title}} - {{product.price | currency}} - {{product.inventory}}
+        <button @click="addProductToCart(product)">
+          Add to Cart
+        </button>
       </li>
     </ul>
   </div>
@@ -22,8 +25,12 @@ export default {
   },
   computed: {
     products () {
-      // return store.state.products
       return this.$store.getters.availableProducts
+    }
+  },
+  methods: {
+    addProductToCart (product) {
+      this.$store.dispatch('addProductToTheCart', product)
     }
   },
   created () {
@@ -32,13 +39,6 @@ export default {
       .then(() => {
         this.loading = false
       })
-    /*
-    shop.getProducts(prods => {
-      // You should never update the state directly, without calling amutation
-      // store.state.products = prods
-      store.commit('setProducts', prods)
-    })
-    */
   }
 }
 </script>
