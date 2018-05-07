@@ -3,16 +3,20 @@
     <h1>Shopping Cart</h1>
     <ul>
       <li v-for="(product, pIndex) in products" :key="pIndex">
-        {{product.title}} - {{product.price}} - {{product.quantity}}
+        {{product.title}} - {{product.price | currency}} - {{product.quantity}}
       </li>
     </ul>
+    <p>Total: {{total | currency}}</p>
   </div>
 </template>
 <script>
 export default {
   computed: {
-    products() {
+    products () {
       return this.$store.getters.cartProducts
+    },
+    total () {
+      return this.$store.getters.cartTotal
     }
   }
 }
