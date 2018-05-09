@@ -30,7 +30,7 @@ export default {
     ...mapState({
       products: state => state.products.productItems
     }),
-    ...mapGetters({
+    ...mapGetters('products', {
       isProductInStock: 'productsIsInStock'
     })
   },
@@ -47,8 +47,8 @@ export default {
   */
   methods: {
     ...mapActions({
-      getProducts: 'fetchProducts',
-      addProductToCart: 'addProductToTheCart'
+      getProducts: 'products/fetchProducts',
+      addProductToCart: 'cart/addProductToTheCart'
     })
     // addProductToCart (product) {
     //   this.$store.dispatch('addProductToTheCart', product)

@@ -18,7 +18,10 @@ export default new Vuex.Store({
   getters: { // = computed
 
   },
-  actions: outActions, //methods
+  //actions: outActions, //methods
+  actions: {
+
+  },
   mutations: { // It is responsible for setting and updating the state
 
   }
