@@ -23,7 +23,7 @@ export default {
       total: 'cartTotal'
     }),
     ...mapState({
-      statusCheckout: state => state.checkoutStatus
+      statusCheckout: state => state.cart.checkoutStatus
     })
     /*
     products () {
